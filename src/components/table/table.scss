@@ -1,0 +1,105 @@
+thead {
+  margin-bottom: 10px;
+  color: #95989a;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+thead > tr > td {
+  padding: 80px 0 20px 0;
+}
+
+tbody > tr > td {
+  height: 40px;
+  padding: 26px 0;
+  font-size: 22px;
+  color: #2f2f2f;
+}
+
+.terminal-field_a {
+  color: #63c745;
+  font-weight: 700;
+  border: 1px solid #63c745;
+  border-radius: 50%;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 22px;
+}
+
+.terminal-field_d {
+  color: #1eb7ee;
+  font-weight: 700;
+  border: 1px solid #1eb7ee;
+  border-radius: 50%;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 22px;
+}
+
+.flight-logo {
+  height: 30px;
+  width: 60px;
+}
+
+.flight-details {
+  visibility: hidden;
+
+  &:hover {
+    visibility: visible;
+  }
+}
+
+.spinner {
+  display: block;
+  margin: auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 4px solid black;
+  border-bottom-color: transparent;
+  animation: rotate 1s linear infinite;
+  -webkit-animation: rotate 1s linear infinite;
+  -moz-animation: rotate 1s linear infinite;
+  -o-animation: rotate 1s linear infinite;
+  margin-top: 10px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

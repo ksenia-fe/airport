@@ -1,0 +1,61 @@
+.departures-btn {
+  outline: none;
+  padding: 0;
+  padding-right: 100px;
+  width: 580px;
+  color: #1eb7ee;
+  background-color: #fff;
+  outline: none;
+  border: 0;
+  font-size: 24px;
+  line-height: 60px;
+  text-align: right;
+  margin-right: -60px;
+  border-radius: 60px 60px 0 0 !important;
+  flex: 1 1 auto;
+  text-transform: uppercase;
+  position: relative;
+  font-weight: 600;
+  border-radius: 0 60px 0 0;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  outline: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.arrivals-btn {
+  outline: none;
+  padding: 0;
+  padding-left: 125px;
+  width: 580px;
+  color: #fff;
+  background-color: #1eb7ee;
+  border: 0;
+  font-size: 24px;
+  line-height: 60px;
+  text-align: left;
+  border-radius: 60px 60px 0 0 !important;
+  cursor: default;
+  flex: 1 1 auto;
+  text-transform: uppercase;
+  position: relative;
+  font-weight: 600;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
+  border-top-right-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.fa-plane {
+  padding-right: 10px;
+}
+
+.unclicked {
+  z-index: 2;
+}
+
+.clicked {
+  z-index: 3;
+}
