@@ -8,6 +8,6 @@ export const fetchFlightsData = () =>
       if (response.status === 200) {
         return response.json().then((data) => data.body);
       }
-      throw new Error("Failed to fetch data");
+      throw new Error("Failed to load data");
     }
   );
