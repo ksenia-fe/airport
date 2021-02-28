@@ -36,11 +36,11 @@ Flight.propTypes = {
   flight: PropTypes.shape({
     term: PropTypes.string.isRequired,
     localTime: PropTypes.string.isRequired,
-    destination: PropTypes.string,
-    status: PropTypes.string,
+    destination: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
     airline: PropTypes.shape({
-      logo: PropTypes.string,
-      name: PropTypes.string,
+      logo: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
     }),
     flightNumber: PropTypes.string.isRequired,
   }),
