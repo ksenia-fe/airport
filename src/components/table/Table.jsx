@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import qs from "qs";
@@ -10,9 +10,9 @@ import ArrDeps from "./ArrDeps";
 import "./table.scss";
 
 const Table = (props) => {
-  const { search } = useLocation();
+  const { search, pathname } = useLocation();
   const { flightDirection } = useParams();
-  console.log(flightDirection);
+  console.log(pathname, search);
   const searchedFlight = qs.parse(search, { ignoreQueryPrefix: true });
 
   useEffect(() => props.fetchFlights(), []);
@@ -31,32 +31,23 @@ const Table = (props) => {
             <td></td>
           </tr>
         </thead>
-        {/* <BrowserRouter>
-            <Switch>
-              <Route path="/"></Route>
-              <Route path="/:fligh">
-                <ArrDeps
-                  flights={
-                    searchedFlight.searched
-                      ? props[flightDirection].filter(
-                          (flight) =>
-                            flight.flightNumber === searchedFlight.searched
-                        )
-                      : props[flightDirection]
-                  }
-                />
-              </Route>
-            </Switch>
-          </BrowserRouter> */}
-        <ArrDeps
-          flights={
-            searchedFlight.searched
-              ? props[flightDirection].filter(
-                  (flight) => flight.flightNumber === searchedFlight.searched
-                )
-              : props[flightDirection]
-          }
-        />
+        <Switch>
+          <Route exact path="/">
+            {null}
+          </Route>
+          <Route path={`${pathname}`}>
+            <ArrDeps
+              flights={
+                searchedFlight.searched
+                  ? props[flightDirection].filter(
+                      (flight) =>
+                        flight.flightNumber === searchedFlight.searched
+                    )
+                  : props[flightDirection]
+              }
+            />
+          </Route>
+        </Switch>
       </table>
     </main>
   );
