@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import store from "./store";
 
 import Table from "./components/table/Table";
@@ -11,9 +11,13 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <div className="main">
-          <SearchForm />
+          <Route path="/">
+            <SearchForm />
+          </Route>
           <div className="shedule">
-            <Table />
+            <Route path="/:flightDirection">
+              <Table />
+            </Route>
           </div>
         </div>
       </BrowserRouter>

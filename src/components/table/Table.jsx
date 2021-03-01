@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import {
+  useLocation,
+  useParams,
+  Route,
+  BrowserRouter,
+  Switch,
+} from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import qs from "qs";
@@ -12,6 +18,8 @@ import "./table.scss";
 
 const Table = (props) => {
   const { search, pathname } = useLocation();
+  const { flightDirection } = useParams();
+  console.log(flightDirection);
   const searchedFlight = qs.parse(search, { ignoreQueryPrefix: true });
 
   useEffect(() => props.fetchFlights(), []);
@@ -32,13 +40,30 @@ const Table = (props) => {
               <td></td>
             </tr>
           </thead>
+          <BrowserRouter>
+            <Switch>
+              <Route path="/"></Route>
+              <Route path="/:flightDirection">
+                <ArrDeps
+                  flights={
+                    searchedFlight.searched
+                      ? props[flightDirection].filter(
+                          (flight) =>
+                            flight.flightNumber === searchedFlight.searched
+                        )
+                      : props[flightDirection]
+                  }
+                />
+              </Route>
+            </Switch>
+          </BrowserRouter>
           <ArrDeps
             flights={
               searchedFlight.searched
-                ? props[pathname.split("/")[1]].filter(
+                ? props[flightDirection].filter(
                     (flight) => flight.flightNumber === searchedFlight.searched
                   )
-                : props[pathname.split("/")[1]]
+                : props[flightDirection]
             }
           />
         </table>
