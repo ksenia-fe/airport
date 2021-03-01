@@ -9,7 +9,6 @@ import "./search-form.scss";
 
 const SearchForm = ({ searchedFlight, setSearchedFlight }) => {
   const { search, pathname } = useLocation();
-  const flightDirection = pathname === "/" ? "departures" : pathname;
   const searchedFlightByDefault = qs.parse(search, { ignoreQueryPrefix: true });
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const SearchForm = ({ searchedFlight, setSearchedFlight }) => {
   return (
     <div className="search-flights">
       <h2 className="search-flights__title">search flights</h2>
-      <form className="search-flights__form">
+      <div className="search-flights__form">
         <input
           className="search-flights__form_input"
           type="text"
@@ -30,10 +29,14 @@ const SearchForm = ({ searchedFlight, setSearchedFlight }) => {
           onChange={(e) => setSearchedFlight(e.target.value)}
         />
         <i className="fas fa-search"></i>
-        <Link to={`${flightDirection}?searched=${searchedFlight}`}>
+        <Link
+          to={`${
+            pathname === "/" ? "departures" : pathname
+          }?searched=${searchedFlight}`}
+        >
           <button className="search-flights__form_btn">search</button>
         </Link>
-      </form>
+      </div>
     </div>
   );
 };
