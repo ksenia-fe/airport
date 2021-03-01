@@ -1,11 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  useLocation,
-  useParams,
-  Route,
-  BrowserRouter,
-  Switch,
-} from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import qs from "qs";
@@ -13,7 +7,6 @@ import qs from "qs";
 import * as Actions from "../flights.actions";
 import { arrivalsSelector, departuresSelector } from "../flights.selectors";
 import ArrDeps from "./ArrDeps";
-import Buttons from "../buttons/Buttons";
 import "./table.scss";
 
 const Table = (props) => {
@@ -26,24 +19,22 @@ const Table = (props) => {
 
   return (
     <main className="airport-board__content">
-      <div className="flights">
-        <Buttons />
-        <table className="shedule__table">
-          <thead>
-            <tr>
-              <td className="terminal">Terminal</td>
-              <td className="local-time">Local time</td>
-              <td className="destination">Destination</td>
-              <td className="status">Status</td>
-              <td className="airline">Airline</td>
-              <td className="flight">Flight</td>
-              <td></td>
-            </tr>
-          </thead>
-          <BrowserRouter>
+      <table className="shedule__table">
+        <thead>
+          <tr>
+            <td className="terminal">Terminal</td>
+            <td className="local-time">Local time</td>
+            <td className="destination">Destination</td>
+            <td className="status">Status</td>
+            <td className="airline">Airline</td>
+            <td className="flight">Flight</td>
+            <td></td>
+          </tr>
+        </thead>
+        {/* <BrowserRouter>
             <Switch>
               <Route path="/"></Route>
-              <Route path="/:flightDirection">
+              <Route path="/:fligh">
                 <ArrDeps
                   flights={
                     searchedFlight.searched
@@ -56,18 +47,17 @@ const Table = (props) => {
                 />
               </Route>
             </Switch>
-          </BrowserRouter>
-          <ArrDeps
-            flights={
-              searchedFlight.searched
-                ? props[flightDirection].filter(
-                    (flight) => flight.flightNumber === searchedFlight.searched
-                  )
-                : props[flightDirection]
-            }
-          />
-        </table>
-      </div>
+          </BrowserRouter> */}
+        <ArrDeps
+          flights={
+            searchedFlight.searched
+              ? props[flightDirection].filter(
+                  (flight) => flight.flightNumber === searchedFlight.searched
+                )
+              : props[flightDirection]
+          }
+        />
+      </table>
     </main>
   );
 };

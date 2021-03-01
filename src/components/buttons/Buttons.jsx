@@ -17,7 +17,7 @@ const Buttons = () => {
 
   return (
     <div className="shedule__buttons">
-      <Link to={`/departures${search}`}>
+      <Link to={`departures${search}`}>
         <button className={`departures-btn ${depBtnClass}`}>
           <i
             className="fas fa-plane"
@@ -26,7 +26,7 @@ const Buttons = () => {
           <span>Departures</span>
         </button>
       </Link>
-      <Link to={`/arrivals${search}`}>
+      <Link to={`arrivals${search}`}>
         <button className={`arrivals-btn ${arrBtnClass}`}>
           <i
             className="fas fa-plane"

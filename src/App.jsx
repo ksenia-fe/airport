@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import store from "./store";
 
 import Table from "./components/table/Table";
+import Buttons from "./components/buttons/Buttons";
 import SearchForm from "./components/search-form/SearchForm";
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
         <div className="main">
           <Route path="/">
             <SearchForm />
+            <Buttons />
           </Route>
           <div className="shedule">
             <Route path="/:flightDirection">
