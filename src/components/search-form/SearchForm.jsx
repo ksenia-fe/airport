@@ -9,7 +9,7 @@ import "./search-form.scss";
 
 const SearchForm = ({ searchedFlight, setSearchedFlight }) => {
   const { search, pathname } = useLocation();
-  const flightDirection = pathname === "" ? "departures" : pathname;
+  const flightDirection = pathname === "/" ? "departures" : pathname;
   const searchedFlightByDefault = qs.parse(search, { ignoreQueryPrefix: true });
 
   useEffect(() => {

@@ -5,12 +5,19 @@ import "./buttons.scss";
 
 const Buttons = () => {
   const { search, pathname } = useLocation();
-  const depBtnClass = pathname.includes("/departures")
-    ? "clicked"
-    : "unclicked";
-  const arrBtnClass = pathname.includes("/departures")
-    ? "unclicked"
-    : "clicked";
+  let depBtnClass;
+  if (pathname.includes("/departures") || pathname === "/") {
+    depBtnClass = "clicked";
+  } else {
+    depBtnClass = "unclicked";
+  }
+
+  let arrBtnClass;
+  if (pathname.includes("/departures") || pathname === "/") {
+    arrBtnClass = "unclicked";
+  } else {
+    arrBtnClass = "clicked";
+  }
 
   return (
     <div className="shedule__buttons">
