@@ -12,7 +12,7 @@ import "./table.scss";
 const Table = (props) => {
   const { search, pathname } = useLocation();
   const { flightDirection } = useParams();
-  console.log(pathname, search);
+
   const searchedFlight = qs.parse(search, { ignoreQueryPrefix: true });
 
   useEffect(() => props.fetchFlights(), []);
