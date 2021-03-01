@@ -51,7 +51,7 @@ export const arrivalsSelector = (state) => {
   return flightsList.arrival
     .filter(
       (flight) =>
-        moment(flight.timeDepShedule).format("DD-MM-YYYY") === dateToday
+        moment(flight.timeArrShedule).format("DD-MM-YYYY") === dateToday
     )
     .map((flight) => setFlight(flight, "arrivals"));
 };

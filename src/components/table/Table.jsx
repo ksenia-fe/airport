@@ -17,7 +17,7 @@ import Buttons from "../buttons/Buttons";
 import "./table.scss";
 
 const Table = (props) => {
-  const { search, pathname } = useLocation();
+  const { search } = useLocation();
   const { flightDirection } = useParams();
   console.log(flightDirection);
   const searchedFlight = qs.parse(search, { ignoreQueryPrefix: true });
