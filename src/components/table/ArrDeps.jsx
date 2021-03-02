@@ -1,11 +1,8 @@
 import React from "react";
 import Flight from "./Flight";
 
-const ArrDeps = ({ flights }) => {
-  if (!flights) {
-    return null;
-  }
-  return (
+const ArrDeps = ({ flights }) =>
+  flights && (
     <tbody>
       {flights.length === 0 ? (
         <tr>
@@ -20,6 +17,5 @@ const ArrDeps = ({ flights }) => {
       )}
     </tbody>
   );
-};
 
 export default ArrDeps;
