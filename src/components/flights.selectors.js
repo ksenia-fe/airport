@@ -30,24 +30,26 @@ export const arrivalsSelector = (state) => {
     .map((flight) => setFlight(flight, "arrivals"));
 };
 
-function setFlight(flight, direction) {
+function setFlight(flight, flightDirection) {
   const localTime =
-    direction === "arrivals" ? flight.timeToStand : flight.timeDepShedule;
+    flightDirection === "arrivals" ? flight.timeToStand : flight.timeDepShedule;
   const deppArrTime =
-    direction === "arrivals" ? flight.timeLandFact : flight.timeTakeofFact;
+    flightDirection === "arrivals"
+      ? flight.timeLandFact
+      : flight.timeTakeofFact;
 
   return {
     id: flight.ID,
     term: flight.term,
     localTime: moment(localTime).format("HH:mm"),
     destination:
-      direction === "arrivals"
+      flightDirection === "arrivals"
         ? flight["airportFromID.city_en"]
         : flight["airportToID.city_en"],
     status:
-      direction === "departures"
-        ? `Departed ${moment(deppArrTime).format("HH:mm")}`
-        : `Landed ${moment(deppArrTime).format("HH:mm")}`,
+      flightDirection === "arrivals"
+        ? `Landed ${moment(deppArrTime).format("HH:mm")}`
+        : `Departed ${moment(deppArrTime).format("HH:mm")}`,
     airline: {
       logo: flight.airline.en.logoSmallName,
       name: flight.airline.en.name,

@@ -1,6 +1,6 @@
 import { fetchFlightsData } from "./gateway";
 
-export const SET_FLIGHTS_DATA = "FLIGHTS_DATA";
+export const SET_FLIGHTS_DATA = "SET_FLIGHTS_DATA";
 export const SET_SEARCHED_FLIGHT = "SET_SEARCHED_FLIGHT";
 
 export const setFlights = (flightsData) => {
